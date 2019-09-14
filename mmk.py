@@ -3,7 +3,7 @@ A = float(input('Enter Lambda = '))
 U = float(input('Enter Mu = '))
 print("*** kmin = {0:d} ***".format(int(1+A//U)))
 kmax = int(input('Enter kmax (kmin?) = '))
-Pnmax = int(input('Enter cuantos Pn (0?) = '))
+Pnmax = int(input('Enter Pnmax (0?) = '))
 Cw = float(input('Enter Cw (0?) = '))
 Cs = float(input('Enter Cs (0?) = '))
 for k in range(int(1+A//U), kmax+1):
