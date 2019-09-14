@@ -1,10 +1,10 @@
 import array
-A = float(input('Ingresa Lambda = '))
-U = float(input('Ingresa Mu = '))
-N = int(input('Ingresa N = '))
-k = int(input('ingresa k = '))
-Cw = float(input('Ingresa Cw (0?) = '))
-Cs = float(input('Ingresa Cs (0?) = '))
+A = float(input('Enter Lambda = '))
+U = float(input('Enter Mu = '))
+N = int(input('Enter N = '))
+k = int(input('Enter k = '))
+Cw = float(input('Enter Cw (0?) = '))
+Cs = float(input('Enter Cs (0?) = '))
 Nf = 1
 for i in range(1, N+1):
     Nf = Nf*i
