@@ -55,4 +55,4 @@ if Cw != 0 or Cs != 0:
     print("   = {0:.2f}*{1:.4G} + {2:.2f}*{3:.4G} =".format(Cw,L,Cs,k))
     print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs*k))
     print("   = {0:.2f}".format(CT))
-#20190914
+#20190914 
