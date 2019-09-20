@@ -1,10 +1,10 @@
 import array
-A = float(input('Enter Lambda = '))
-U = float(input('Enter Mu = '))
-N = int(input('Enter N = '))
-k = int(input('Enter k = '))
-Cw = float(input('Enter Cw (0?) = '))
-Cs = float(input('Enter Cs (0?) = '))
+A = float(eval(input('Enter Lambda = ')))
+U = float(eval(input('Enter Mu = ')))
+N = int(eval(input('Enter N = ')))
+k = int(eval(input('Enter k = ')))
+Cw = float(eval(input('Enter Cw (0?) = ')))
+Cs = float(eval(input('Enter Cs (0?) = ')))
 Nf = 1
 for i in range(1, N+1):
     Nf *= i
@@ -55,4 +55,4 @@ if Cw != 0 or Cs != 0:
     print("   = {0:.2f}*{1:.4G} + {2:.2f}*{3:.4G} =".format(Cw,L,Cs,k))
     print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs*k))
     print("   = {0:.2f}".format(CT))
-#20190914 
+#190920
