@@ -1,11 +1,11 @@
 import array
-A = float(input('Enter Lambda = '))
-U = float(input('Enter Mu = '))
+A = float(eval(input('Enter Lambda = ')))
+U = float(eval(input('Enter Mu = ')))
 print("*** kmin = {0:d} ***".format(int(1+A//U)))
-kmax = int(input('Enter kmax (kmin?) = '))
-Pnmax = int(input('Enter Pnmax (0?) = '))
-Cw = float(input('Enter Cw (0?) = '))
-Cs = float(input('Enter Cs (0?) = '))
+kmax = int(eval(input('Enter kmax (kmin?) = ')))
+Pnmax = int(eval(input('Enter Pnmax (0?) = ')))
+Cw = float(eval(input('Enter Cw (0?) = ')))
+Cs = float(eval(input('Enter Cs (0?) = ')))
 for k in range(int(1+A//U), kmax+1):
     print()
     print("k = {0:d} ################".format(k))
@@ -42,4 +42,4 @@ for k in range(int(1+A//U), kmax+1):
         print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs*k))
         print("   = {0:.2f}".format(CT))
 print()
-#20190914
+#190920
