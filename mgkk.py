@@ -1,8 +1,8 @@
 import array
-A = float(input('Enter Lambda = '))
-U = float(input('Enter Mu = '))
-k = int(input('Enter k = '))
-Cs = float(input('Enter Cs (0?) = '))
+A = float(eval(input('Enter Lambda = ')))
+U = float(eval(input('Enter Mu = ')))
+k = int(eval(input('Enter k = ')))
+Cs = float(eval(input('Enter Cs (0?) = ')))
 sum1 = 1; iF = 1
 for i in range(1,k+1):
     iF *= i
@@ -24,3 +24,4 @@ if Cs != 0:
     CT = Cs*k
     print("CT = Cs*k = {0:.2f}*{1:.4G} =".format(Cs,k))
     print("   = {0:.2f}".format(Cs*k))
+#190920
