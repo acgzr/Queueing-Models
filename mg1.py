@@ -20,4 +20,4 @@ if Cw != 0 or Cs != 0:
     print("CT = Cw*L + Cs =")
     print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs))
     print("   = {0:.2f}".format(CT))
-#190920
+#190928
