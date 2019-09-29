@@ -1,58 +1,38 @@
-import array
 A = float(eval(input('Enter Lambda = ')))
 U = float(eval(input('Enter Mu = ')))
 N = int(eval(input('Enter N = ')))
 k = int(eval(input('Enter k = ')))
 Cw = float(eval(input('Enter Cw (0?) = ')))
 Cs = float(eval(input('Enter Cs (0?) = ')))
-Nf = 1
-for i in range(1, N+1):
-    Nf *= i
-kf = 1
-for i in range(1, k+1):
-    kf *= i
-sum1 = 1; nf = 1; Nnf = Nf
+F = []; F = [1]+[F[-1] for n in range(1, max([N, k])+1) if not F.append(F[-1]*n if F else 1)]
+sum1 = []; sum1 = [sum1[-1] for n in range(k) if not sum1.append(sum1[-1]+F[N]*(A/U)**n/(F[N-n]*F[n]) if sum1 else 1)]
+sum2 = []; sum2 = [sum2[-1] for n in range(k-1, N+1) if not sum2.append(sum2[-1]+F[N]*(A/U)**n/(F[N-n]*F[k]*k**(n-k)) if sum2 else 0)]
+P = [1/(sum1[-1]+sum2[-1])]
+print("P({0:d}) = {1:.4G}%".format(0, P[0]*100))
 for n in range(1, k):
-    nf *= n
-    Nnf /= N-n+1
-    sum1 += Nf*(A/U)**n/(Nnf*nf)
-sum2 = 0
-for n in range(k, N):
-    Nnf /= N-n+1
-    sum2 += Nf*(A/U)**n/(Nnf*kf*k**(n-k))
-sum2 += Nf*(A/U)**N/(kf*k**(N-k))
-P = array.array('f', [1/(sum1+sum2)])
-sum3 = P[0]; nf = 1; Nnf = Nf
-for n in range(1, k):
-    nf *= n
-    Nnf /= N-n+1
-    P.append(Nf*(A/U)**n*P[0]/(Nnf*nf))
-    sum3 += P[n]
-for n in range(k, N):
-    Nnf /= N-n+1
-    P.append(Nf*(A/U)**n*P[0]/(Nnf*kf*k**(n-k)))
-P.append(Nf*(A/U)**N*P[0]/(kf*k**(N-k)))
-L = 0; Ae = 0
-for n in range(N+1):
-    print("P({0:d}) = {1:.4G}%".format(n,P[n]*100))
-    L += n*P[n]
-    Ae += (N-n)*A*P[n]
-print("L = {0:.4G}".format(L))
-print("Ae = {0:.4G}".format(Ae))
-W = L/Ae
+    P += [F[N]*(A/U)**n*P[0]/(F[N-n]*F[n])]
+    print("P({0:d}) = {1:.4G}%".format(n, P[n]*100))
+for n in range(k, N+1):
+    P += [F[N]*(A/U)**n*P[0]/(F[N-n]*F[k]*k**(n-k))]
+    print("P({0:d}) = {1:.4G}%".format(n, P[n]*100))
+L = []; L = [L[-1] for n in range(N+1) if not L.append(L[-1]+n*P[n] if L else 0)]
+print("L = {0:.4G}".format(L[-1]))
+Ae = []; Ae = [Ae[-1] for n in range(N+1) if not Ae.append(Ae[-1]+(N-n)*A*P[n] if Ae else N*A*P[0])]
+print("Ae = {0:.4G}".format(Ae[-1]))
+W = L[-1]/Ae[-1]
 print("W = {0:.4G}".format(W))
-Rho = Ae/(k*U)
+Rho = Ae[-1]/(k*U)
 print("Rho (p) = {0:.4G}".format(Rho))
 Wq = W-1/U
 print("Wq = {0:.4G}".format(Wq))
-Lq = Wq*Ae
+Lq = Wq*Ae[-1]
 print("Lq = {0:.4G}".format(Lq))
-Pw = 1-sum3
+sum3 = []; sum3 = [sum3[-1] for n in range(k) if not sum3.append(sum3[-1]+P[n] if sum3 else P[0])]
+Pw = 1-sum3[-1]
 print("Pw = {0:.4G}%".format(Pw*100))
 if Cw != 0 or Cs != 0:
-    CT = Cw*L+Cs*k
+    CT = Cw*L[-1]+Cs*k
     print("CT = Cw*L + Cs*k =")
-    print("   = {0:.2f}*{1:.4G} + {2:.2f}*{3:.4G} =".format(Cw,L,Cs,k))
-    print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs*k))
+    print("   = {0:.2f} + {1:.2f} =".format(Cw*L[-1], Cs*k))
     print("   = {0:.2f}".format(CT))
-#190920
+#190929
