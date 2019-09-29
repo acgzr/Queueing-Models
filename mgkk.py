@@ -2,17 +2,12 @@ A = float(eval(input('Enter Lambda = ')))
 U = float(eval(input('Enter Mu = ')))
 k = int(eval(input('Enter k = ')))
 Cs = float(eval(input('Enter Cs (0?) = ')))
-sum1 = iF = 1
-for i in range(1,k+1):
-    iF *= i
-    sum1 += ((A/U)**i)/iF
-P = [1/sum1]
-print("P({0:d}) = {1:.4G}%".format(0,P[0]*100))
-jF = 1
-for j in range(1,k+1):
-    jF *= j
-    P += [(((A/U)**j)/jF)/sum1]
-    print("P({0:d}) = {1:.4G}%".format(j,P[j]*100))
+F = []; F = [1]+[F[-1] for n in range(1, k+1) if not F.append(F[-1]*n if F else 1)]
+sum1 = []; sum1 = [sum1[-1] for n in range(k+1) if not sum1.append(sum1[-1]+(A/U)**n/F[n] if sum1 else 1)]
+P = []
+for j in range(k+1):
+    P += [(A/U)**j/(F[j]*sum1[-1])]
+    print("P({0:d}) = {1:.4G}%".format(j, P[j]*100))
 L = (1-P[k])*A/U
 print("L = {0:.4G}".format(L))
 W = L/A
@@ -22,4 +17,4 @@ print("Rho (p) = {0:.4G}".format(Rho))
 if Cs != 0:
     CT = Cs*k
     print("CT = Cs*k = {0:.2f}".format(Cs*k))
-#190928
+#190929
