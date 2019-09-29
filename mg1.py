@@ -1,6 +1,6 @@
 A = float(eval(input('Enter Lambda = ')))
 U = float(eval(input('Enter Mu = ')))
-D = float(eval(input('Enter Sigma (0?) = ')))
+D = float(eval(input('Enter Sigma (0 if deterministic) = ')))
 Cw = float(eval(input('Enter Cw (0?) = ')))
 Cs = float(eval(input('Enter Cs (0?) = ')))
 P = [1-A/U]
@@ -18,6 +18,6 @@ print("W = {0:.4G}".format(W))
 if Cw != 0 or Cs != 0:
     CT = Cw*L+Cs
     print("CT = Cw*L + Cs =")
-    print("   = {0:.2f} + {1:.2f} =".format(Cw*L,Cs))
+    print("   = {0:.2f} + {1:.2f} =".format(Cw*L, Cs))
     print("   = {0:.2f}".format(CT))
-#190928
+#190929
