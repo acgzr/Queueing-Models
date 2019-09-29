@@ -7,7 +7,7 @@ for i in range(1,k+1):
     iF *= i
     sum1 += ((A/U)**i)/iF
 P = [1/sum1]
-print("P({0:d}) = {1:.4G}%".format(j,P[0]*100))
+print("P({0:d}) = {1:.4G}%".format(0,P[0]*100))
 jF = 1
 for j in range(1,k+1):
     jF *= j
