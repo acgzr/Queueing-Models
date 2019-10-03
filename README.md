@@ -1,7 +1,7 @@
 # Queuing-Models
 Phyton scripts designed in VSCode for CasioPython (MicroPython 1.9.4).
 
-Welcome, I uploaded these scripts in GitHub as a thank you to the TI-Planet community. However, they should be useful to anyone interested in Python or in common queuing models defined by the Kendall-Lee notation.
+Welcome, I uploaded these scripts in GitHub as a thank you to the TI-Planet community. However, they should be useful to anyone interested in Python or in common queuing models defined by the Kendall-Lee notation. You can also find some other miscellaneous scripts I've been working on.
 
 These scripts have the following purposes:
 - Serve as practice for coding with the Python language
@@ -14,4 +14,4 @@ Comments or questions are accepted, but may not be answered immediately.
 
 Thank you for reading!
 
-#20190914
+#191002
